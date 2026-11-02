@@ -6,48 +6,45 @@
 <style>
 @font-face {
     font-family: "Pusab";
-    src: url("./PUSAB___.otf") format("opentype");
+    src: url("PUSAB___.otf") format("opentype");
 }
 
-body{
-    margin:0;
-    width:100vw;
-    height:100vh;
-    background:#00FF00; /* greenscreen */
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
+body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #00FF00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
 
-input{
-    padding:10px;
-    width:500px;
-    max-width:90%;
-    font-size:24px;
-}
-
-#text{
-    margin-top:20px;
-    font-family:"Pusab", sans-serif;
-    font-size:100px;
-    color:white;
-    text-align:center;
+#text {
+    font-family: "Pusab", sans-serif;
+    font-size: 120px;
+    color: white;
+    text-align: center;
+    
+    text-shadow:
+        -5px -5px 0 #000,
+         5px -5px 0 #000,
+        -5px  5px 0 #000,
+         5px  5px 0 #000,
+         0px -5px 0 #000,
+         0px  5px 0 #000,
+        -5px  0px 0 #000,
+         5px  0px 0 #000;
 }
 </style>
 </head>
 <body>
 
-<input id="input" placeholder="Type something...">
-<div id="text">TEXT</div>
+<div id="text"></div>
 
 <script>
-const input = document.getElementById("input");
-const text = document.getElementById("text");
-
-input.addEventListener("input", () => {
-    text.textContent = input.value || "TEXT";
-});
+document.getElementById("text").textContent =
+    prompt("Enter text:") || "TEXT";
 </script>
 
 </body>
